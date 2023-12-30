@@ -1,10 +1,6 @@
-# Cyclostationary Spectral Proper Orthogonal Decomposition (CS-SPOD) in Matlab
-<p align="center">
-  <a href="https://lbesson.mit-license.org/">
-    <img src="https://img.shields.io/badge/License-MIT-blue.svg" />
-  </a>
-</p>
-<p align="justify">
+# Cyclostationary Spectral Proper Orthogonal Decomposition (CS-SPOD) in Matlab <a href="https://github.com/CyclostationarySPOD/CSSPOD/blob/main/LICENSE.md"> <img src="https://img.shields.io/badge/License-MIT-blue.svg" />
+
+
 CSSPOD() is a Matlab implementation of the cyclostationary extension of spectral proper orthogonal decomposition (CS-SPOD) [1]. CS-SPOD is suitable for analyzing flows that exhibit periodic statistics. Examples of these cyclostationary flows include:		
 	
   1. Flows with harmonic actuation (e.g. a periodically forced turbulent jet)	
