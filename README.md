@@ -46,7 +46,7 @@ CS-SPOD determines the optimal decomposition of these cyclostationary flows in a
  }
 ```
 
-## Turbulent jet database
+## Harmonically forced turbulent jet database
 The large-eddy simulation data provided along with this example is a subset of the database of a harmonically forced (St_f=1.5) Mach 0.4 turbulent jet described in [2] and was calculated using the unstructured flow solver Charles developed at Cascade Technologies [4]. If you are using the database in your research or teaching, please include explicit mention of [2,4]. The test database consists of 25000 snapshots of the symmetric component (m=0) of a round turbulent jet. 
 
 ## References
