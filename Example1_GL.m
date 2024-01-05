@@ -110,7 +110,7 @@ plot(x, real(cMode(:, 11)));
 plot(x, real(cMode(:, 12))); 
 legend({['f = ', num2str(cF(7))],['f = ', num2str(cF(8))], ['f = ', num2str(cF(9))], ['f = ', num2str(cF(10))], ['f = ', num2str(cF(11))], ['f = ', num2str(cF(12))]})
 xlabel('x');
-ylabel('real(psi(x, f))');
+ylabel('Real(psi(x, f))');
 xlim([-50 50]);
 
 % Plot the time dependent modes
@@ -134,8 +134,11 @@ subplot(1, 2, 1);
 pcolor(tM, x, real(pTime)); axis square; shading interp; colormap(hot); ylim([-50 50]);
 xlabel('t');
 ylabel('x');
+title('Real(phi(x, t))');
 
 subplot(1, 2, 2);
 pcolor(pM, x, abs(pTime)); axis square; shading interp; colormap(hot); ylim([-50 50]);
 xlabel('$\theta$ (rad)');
 ylabel('x');
+title('abs(phi(x, t))');
+
