@@ -10,12 +10,17 @@ set(0,'defaultAxesFontSize', 40)
 set(groot, 'defaultAxesTickLabelInterpreter','latex');
 set(groot, 'defaultLegendInterpreter','latex');
 
+% Load in the data
+if isfile('./data/jet/JetDataForced.mat') 
+    dat     = load('./data/jet/JetDataForced.mat');
+else
+    error('To run the examples, download data from: https://caltech.box.com/v/CSSPODGithubData');
+end
+
 % Add paths
 addpath ./data/jet/
 addpath ./src/
 
-% Load in the data
-dat     = load('./data/jet/JetDataForced.mat');
 X       = dat.P;
 
 % Define paramerters

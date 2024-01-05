@@ -14,7 +14,11 @@ set(groot, 'defaultLegendInterpreter','latex');
 addpath ./src/
 
 % Load in the data
-dat     = load('./data/gl/GL_CS_Amu_0p4.mat');
+if isfile('./data/gl/GL_CS_Amu_0p4.mat') 
+    dat     = load('./data/gl/GL_CS_Amu_0p4.mat');
+else
+    error('To run the examples, download data from: https://caltech.box.com/v/CSSPODGithubData');
+end
 X       = dat.solSaveM;                         % Data vector (nt, nx1, nx2, nx3)
 a0      = dat.consts.omega;                     % Fundamental cyclic frequency (forcing freq)
 nt      = size(X, 1);                           % Total number of snapshots
