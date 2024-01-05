@@ -319,9 +319,11 @@ for iGam = 1:numGam
     % Compute M  = Qtilde'*W*Qtilde (equation 3.20)
     M = double(Qtilde'*(WeightT.*Qtilde));
     
-    % Compute the eigendecomposition
+    % Compute the eigendecomposition (equation 3.20)
     [Theta,Lambda]      = eigs(M,  nsave, 'largestabs', 'Tolerance', 1e-12);
     Lambda = diag(Lambda);
+    
+    % Compute the eigenvector (equation 3.21)
     Psitilde = Qtilde*Theta*diag(1./sqrt(Lambda));
     
     % Save the eigenvalues and vectors to L and P

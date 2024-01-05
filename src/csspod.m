@@ -304,7 +304,7 @@ for iGam = 1:numGam
         
         % Do the phase-shifting required by this
         % efficient method (equation 3.23b)
-        Qtilde(:, indx_f, :) = squeeze(Qtilde(:, indx_f, :)).*exp(-1i*2*pi*kf*a0*dt*offsetM);
+        Qtilde(:, indx_f, :) = squeeze(Qtilde(:, indx_f, :)).*exp(-1i*2*pi*(kf*a0*dt)*offsetM);
         
     end
     
@@ -323,11 +323,11 @@ for iGam = 1:numGam
     % Compute M  = Qtilde'*W*Qtilde (equation 3.20)
     M = double(Qtilde'*(WeightT.*Qtilde)); % Convert to a double for eigs
     
-    % Compute the eigendecomposition
+    % Compute the eigendecomposition (equation 3.20)
     [Theta, Lambda]      = eigs(M,  nsave, 'largestabs', 'Tolerance', 1e-12);
     Lambda = diag(Lambda);
     
-    % Compute the eigenvector
+    % Compute the eigenvector (equation 3.21)
     Psitilde = Qtilde*Theta*diag(1./sqrt(Lambda));
     
     % Save the eigenvalues and vectors to L and P
