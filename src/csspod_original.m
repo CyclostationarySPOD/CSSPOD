@@ -79,7 +79,7 @@ nsave                   = opts.nsave;
 blockwisemean           = opts.blockwisemean;
 Nf                      = opts.Nf;
 quiet                   = opts.quiet;
-delf                      = 1/(length(Window)*dt);
+delf                    = 1/(length(Window)*dt);
 
 tic
 if ~quiet
@@ -138,21 +138,6 @@ if nDFT < 4
     error('Spectral estimation parameters not meaningful: nDFT is too short.');
 end
 
-% How many oscillations are in the window
-c = nDFT/nt0;
-if abs(round(c) - c) > 1e-10
-    error('The window length is not a integer multiple of nt0 as required by this method');
-end
-
-% obtain frequency axis (equation 3.24)
-f = (0:nDFT-1)*a0/c;
-if mod(nDFT,2)==0
-    f(nDFT/2+1:end) = f(nDFT/2+1:end)-1/dt;
-else
-    f((nDFT+1)/2+1:end) = f((nDFT+1)/2+1:end)-1/dt;
-end
-
-
 % Compute how many connected frequnecies to use
 if strcmp(Nf, 'max')
     max_f = 1/dt/2;
@@ -164,18 +149,28 @@ nf_total = 2*Nf+1;
 % Frequency shifts of the data (as a multiple of alpha)
 nfM = -Nf:1:Nf;
 
-% Compute the index of the values of gamma (equation 3.24, 3.25)
-gammaM_k = 1:floor(c/2)+1; % k <= floor(c/2)+1
-gammaM = (gammaM_k-1)*a0/c;
+% obtain frequency axis (equation 3.16)
+f = (0:nDFT-1)/(nDFT*dt);
+if mod(nDFT,2)==0
+    f(nDFT/2+1:end) = f(nDFT/2+1:end)-1/dt;
+else
+    f((nDFT+1)/2+1:end) = f((nDFT+1)/2+1:end)-1/dt;
+end
+
+
+% Compute the index of the values of gamma (equation 3.16)
+gammaM_k = 1:floor(a0*nDFT*dt/2)+1; % k <= floor(c/2)+1
+gammaM = (gammaM_k-1)/(nDFT*dt);
 
 if ~singlef
-    gammaM_k2 = nDFT-ceil(c/2)+1+1:nDFT; % N_f - ceil(c/2)+1 < k <= Nf
+    gammaM_k2 = nDFT-ceil(a0*nDFT*dt/2)+1+1:nDFT; % N_f - ceil(c/2)+1 < k <= Nf
     gammaM_k = [gammaM_k, gammaM_k2];
-    gammaM   = [gammaM, (gammaM_k2 - 1 - nDFT)*a0/c];
+    gammaM   = [gammaM, (gammaM_k2 - 1 - nDFT)/(nDFT*dt)];
 end
 
 % Get the gamma values from the frequency vector and ensure it matches the analytically expected ones
 gammaM_V2 = f(gammaM_k);
+numGamma = length(gammaM);
 if max(gammaM_V2 - gammaM) > 1e-10
     error('True gamma values and expected gamma values do not match');
 end
@@ -266,13 +261,13 @@ L       = zeros(numGam, nsave, class(X)); L = complex(L, 0);
 eTot    = zeros(numGam, 1, class(X));
 
 for iGam = 1:numGam
-    if ~quiet; disp(['        - Gamma index: ', num2str(iGam), ' out of ', num2str(c)]); end
+    if ~quiet; disp(['        - Gamma index: ', num2str(iGam), ' out of ', num2str(numGamma)]); end
     
     
     %% Compute CS-SPOD using the method of snapshot technique
     
     % Generate the concatenated frequency-data matrix (equation 3.14b)
-    % using equation 3.23b to efficient compute it
+    % using equation 3.23b to efficiently compute it
     Qtilde = squeeze(dataM_Shifted(iGam, :, :));
     
     % Determine kappa (normalization constant)
@@ -283,7 +278,7 @@ for iGam = 1:numGam
     
     % Determine the total weight matrix (repeat Weight along the diagonal
     % nf_total times)
-    WeightT = repmat(Weight, nf_total, 1);                            % Repeat Matrix
+    WeightT = repmat(Weight, nf_total, 1);                            
     
     % Compute M  = Qtilde'*W*Qtilde (equation 3.20)
     M = double(Qtilde'*(WeightT.*Qtilde));
@@ -304,8 +299,8 @@ end
 
 %% Shift the frequency to go from lowest to highest
 if ~singlef
-    pos_f    = 1:floor(c/2)+1;
-    neg_f    = floor(c/2)+2:c;
+    pos_f    = 1:floor(numGamma/2)+1;
+    neg_f    = floor(numGamma/2)+2:numGamma;
     gammaM   = gammaM([neg_f, pos_f]);
     L        = L([neg_f, pos_f], :);
     P        = P([neg_f, pos_f], :);

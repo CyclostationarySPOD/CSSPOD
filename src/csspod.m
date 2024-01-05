@@ -314,7 +314,7 @@ for iGam = 1:numGam
     
     % Determine the total weight matrix (repeat Weight along the diagonal
     % nf_total times)
-    WeightT = repmat(Weight, nf_total, 1);                            % Repeat Matrix
+    WeightT = repmat(Weight, nf_total, 1);                            
     
     % Compute M  = Qtilde'*W*Qtilde (equation 3.20)
     M = double(Qtilde'*(WeightT.*Qtilde)); % Convert to a double for eigs
