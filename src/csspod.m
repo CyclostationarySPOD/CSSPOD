@@ -266,9 +266,13 @@ for iBlk = 1:nBlks
     % Current Fourier transformed block
     cDat = fft(curDat.*Window, [], 1);
     
+    % Extract the correct frequencies and then rearrange the data structure
+    % (this was done to make the code more efficient due to the memory 
+    % access patterns) 
     cDat = cDat(ellM(:), :);
     cDat = reshape(cDat, [nf_total, numGam, nx]);
     cDat = permute(cDat, [3, 1, 2]);
+    
     % Save the data to the data matrix
     dataMF(:, :, iBlk, :) = cDat;
     
