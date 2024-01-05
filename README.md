@@ -12,7 +12,7 @@ CSSPOD() is a Matlab implementation of the cyclostationary extension of spectral
 CS-SPOD determines the optimal decomposition of these cyclostationary flows in an analogous way that SPOD determines the optimal decomposition of statistically stationary flows. CS-SPOD becomes SPOD when analyzing statistically stationary flows. CS-SPOD is a multidimensional version of [3] using the method-of-snapshot technique for computational feasibility. 
 </p>
 
- 
+## To run the examples, download data from: https://caltech.box.com/v/CSSPODGithubData 
 
 ### Please cite the following publications if you use this code/method for your research:
 <p align="center">
