@@ -60,7 +60,7 @@ opts.quiet          = 0;                        % Display the output
 %% Compute CS-SPOD: Method 1 (Modified to reduce memory usage)
 % This is the efficient method as presented in the paper (algo 2). 
 % Memory is approx Mem(complex(X))*(1/(1 - Ovlp)+1)
-% [L, P, gamma, Nf, eTot] = csspod(X, a0, nt0, dt, opts);
+[L, P, gamma, Nf, eTot] = csspod(X, a0, nt0, dt, opts);
 
 %% Compute CS-SPOD: Method 2
 % This is the efficient method as presented in the paper (algo 2). 
@@ -73,7 +73,7 @@ opts.quiet          = 0;                        % Display the output
 
 % This is the original method (algo 3). This is not memory or computational
 % time efficient and it is not reccomended to be used. 
-[L, P, gamma, Nf, eTot] = csspod_original(X, a0, nt0, dt, opts);
+% [L, P, gamma, Nf, eTot] = csspod_original(X, a0, nt0, dt, opts);
 
 %% Plot the eigenspectrum
 
