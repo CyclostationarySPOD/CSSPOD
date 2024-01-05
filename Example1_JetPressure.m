@@ -1,4 +1,4 @@
-%% EXAMPLE 1: Compute CS-SPOD on the pressure of the St_f=1.5, a_0/U_j=10% forced turbulent jet.
+%% EXAMPLE 1: Compute CS-SPOD on the pressure of the St_f=1.5, a_0/U_j=10% forced Mach 0.4 turbulent jet.
 
 % Clear variables
 clc; clear;
