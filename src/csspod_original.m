@@ -236,7 +236,6 @@ numGam  = length(gammaM);
 % Init the data matrix with the same type as the orignal matrix
 dataM_Shifted = zeros(numGam, nx, nf_total, nBlks, class(X)); dataM_Shifted = complex(dataM_Shifted, 0);
 
-% error('This is completley wrong.. it needs to go from -Nf to Nf... it has nothing to do with gamma yet')
 % Loop over all gamma values
 for iNf = 1:nf_total
     
