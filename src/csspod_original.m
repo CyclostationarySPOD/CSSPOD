@@ -91,7 +91,7 @@ end
 % Output the parameters
 if ~quiet
     disp('    - Displaying parameters');
-    disp(['        - Window length: ', num2str(length(Window)), ' (c = ', num2str(length(Window)/nt0), ', \Delta gamma = ', num2str(delf, 2), ')']);
+    disp(['        - Window length: ', num2str(length(Window)), ' (\Delta gamma = ', num2str(delf, 4), ')']);
     disp(['        - Fraction Overlap: ', num2str(FracOvlp)]);
     if singlef
         disp('        - Single sided spectrum computation');
