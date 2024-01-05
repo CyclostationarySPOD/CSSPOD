@@ -21,6 +21,7 @@ end
 addpath ./data/jet/
 addpath ./src/
 
+% Extract data
 X       = dat.P;
 
 % Define paramerters
