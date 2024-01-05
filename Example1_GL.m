@@ -28,7 +28,7 @@ x       = dat.xgrid;                            % Grid
 
 % Define special estimation parameters
 c = 20;                                         % Scale factor on window length
-LWindow = nt0*c+7;                                % Length of the window
+LWindow = nt0*c;                                % Length of the window
 WindowM = hamming(LWindow);                     % Load in the window
 
 % Get default parameters
