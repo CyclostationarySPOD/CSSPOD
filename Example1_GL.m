@@ -28,7 +28,7 @@ x       = dat.xgrid;                            % Grid
 
 % Define special estimation parameters
 c = 20;                                         % Scale factor on window length
-LWindow = nt0*c;                                % Length of the window
+LWindow = nt0*c+7;                                % Length of the window
 WindowM = hamming(LWindow);                     % Load in the window
 
 % Get default parameters
@@ -89,7 +89,7 @@ legend('$\lambda_1$', '$\lambda_2$', '$\lambda_3$', 'interpreter', 'latex');
 %% Plot the CS-SPOD modes (note that these scripts assume that the eigenvectors have been inflated)
 
 % Plot frequency components of the dominant mode
-iGam = 10;              % Pick the gamma value to plot
+iGam = 10;               % Pick the gamma value to plot
 iMode = 1;              % Pick with mode to plot
 
 % Get the current mode to plot
@@ -114,9 +114,6 @@ ylabel('real(psi(x, f))');
 xlim([-50 50]);
 
 % Plot the time dependent modes
-iGam = 10; % Pick the gamma value to plot
-iMode = 1; % Pick with mode to plot
-
 disp(['Current gamma value is: ', num2str(gamma(iGam))]);
 disp(['Current eigenvalue is: ', num2str(L(iGam, iMode))]);
 
