@@ -4,7 +4,7 @@
 CSSPOD() is a Matlab implementation of the cyclostationary extension of spectral proper orthogonal decomposition (CS-SPOD) [1]. CS-SPOD is suitable for analyzing flows that exhibit periodic statistics. Examples of these cyclostationary flows include:		
 	
   1. Flows with harmonic actuation (e.g. a periodically forced turbulent jet)	
-  2. Turbines/rotors/turbomachinary	
+  2. Turbines/rotors/VAWT/turbomachinery	
   3. Bluff body vortex shedding	
   4. Atmospheric (climate) data	
   5. Many others...
