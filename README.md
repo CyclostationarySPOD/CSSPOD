@@ -61,6 +61,6 @@ The large-eddy simulation data provided along with this example is a subset of t
 ## License
  
 Copyright 2023.
-MFC is under the MIT license (see [LICENSE](LICENSE.md) file for full text).
+This code is under the MIT license (see [LICENSE](LICENSE.md) file for full text).
 
 
