@@ -9,6 +9,9 @@ CSSPOD() is a Matlab implementation of the cyclostationary extension of spectral
   4. Atmospheric (climate) data	
   5. Many others...
      
+
+
+
 CS-SPOD determines the optimal decomposition of these cyclostationary flows in an analogous way that SPOD determines the optimal decomposition of statistically stationary flows. CS-SPOD becomes SPOD when analyzing statistically stationary flows. CS-SPOD is a multidimensional version of [3] using the method-of-snapshot technique for computational feasibility. 
 </p>
 
@@ -47,7 +50,13 @@ CS-SPOD determines the optimal decomposition of these cyclostationary flows in a
 ```
 
 ## Harmonically forced turbulent jet database
-The large-eddy simulation data provided along with this example is a subset of the database of a harmonically forced (St_f=1.5) Mach 0.4 turbulent jet described in [2] and was calculated using the unstructured flow solver Charles developed at Cascade Technologies [4]. If you are using the database in your research or teaching, please include explicit mention of [2,4]. The test database consists of 25000 snapshots of the symmetric component (m=0) of a round turbulent jet. 
+The large-eddy simulation data provided along with this example is a subset of the database of a harmonically forced (St_f=1.5) Mach 0.4 turbulent jet described in [2] and was calculated using the unstructured flow solver Charles developed at Cascade Technologies [4]. If you use the database in your research or teaching, please explicitly mention [2,4]. The test database consists of 25000 snapshots of the symmetric component (m=0) of a round turbulent jet. 
+
+
+Here, we have a video comparing a CS-SPOD mode from a strongly forced turbulent jet to a SPOD mode from a natural turbulent jet. We clearly observe the phase-dependent modulation of the CS-SPOD mode, showcasing the power of CS-SPOD. 
+
+https://github.com/CyclostationarySPOD/CSSPOD/assets/22406820/ba00baad-a501-4ec4-9af7-f6dbd1dad758
+
 
 ## References
 [1] Heidt, L. and Colonius, T., 2023. Spectral proper orthogonal decomposition of harmonically forced turbulent flows. arXiv preprint arXiv:2305.05628. 
