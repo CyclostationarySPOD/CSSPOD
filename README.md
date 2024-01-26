@@ -12,10 +12,10 @@ CSSPOD() is a Matlab implementation of the cyclostationary extension of spectral
 
 
 
-CS-SPOD determines the optimal decomposition of these cyclostationary flows in an analogous way that SPOD determines the optimal decomposition of statistically stationary flows. CS-SPOD becomes SPOD when analyzing statistically stationary flows. CS-SPOD is a multidimensional version of [3] using the method-of-snapshot technique for computational feasibility. 
+CS-SPOD determines the optimal decomposition of these cyclostationary flows in an analogous way that SPOD determines the optimal decomposition of statistically stationary flows. CS-SPOD becomes SPOD when analyzing statistically stationary flows. CS-SPOD is a multidimensional version of the one-dimension version [3] using the method-of-snapshot technique for computational feasibility. 
 </p>
 
-### <p align="center"> <ins> To run the examples, download data from: https://caltech.box.com/v/CSSPODGithubData </ins> </p>
+### <p align="center"> <ins> To run the examples, download data from: https://caltech.box.com/v/CSSPODGithubData. </ins> </p>
 
 ### Please cite the following publications if you use this code/method for your research:
 <p align="center">
@@ -50,7 +50,7 @@ CS-SPOD determines the optimal decomposition of these cyclostationary flows in a
 ```
 
 ## Harmonically forced turbulent jet database
-The large-eddy simulation data provided along with this example is a subset of the database of a harmonically forced (St_f=1.5) Mach 0.4 turbulent jet described in [2] and was calculated using the unstructured flow solver Charles developed at Cascade Technologies [4]. If you use the database in your research or teaching, please explicitly mention [2,4]. The test database consists of 25000 snapshots of the symmetric component (m=0) of a round turbulent jet. 
+The large-eddy simulation data provided along with this example is a subset of the database of a harmonically forced $(St_f=1.5,\ a_0/U_j = 0.1)$ Mach 0.4 turbulent jet described in Heidt et al. [2] and was calculated using the unstructured flow solver Charles developed at Cascade Technologies [4]. If you use the database in your research or teaching, please explicitly mention [2,4]. The test database consists of 25000 snapshots of the symmetric component ($m=0$) of a round turbulent jet. 
 
 
 Here, we have a video comparing a CS-SPOD mode from a strongly forced turbulent jet to a SPOD mode from a natural turbulent jet. We clearly observe the phase-dependent modulation of the CS-SPOD mode, showcasing the power of CS-SPOD. 
