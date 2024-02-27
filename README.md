@@ -20,7 +20,7 @@ CS-SPOD determines the optimal decomposition of these cyclostationary flows in a
 ### Please cite the following publications if you use this code/method for your research:
 <p align="center">
   <a href="https://arxiv.org/abs/2305.05628">
-    Heidt, L. and Colonius, T., Journal of Fluid Mechanics (2024).
+    Heidt, L. and Colonius, T., Journal of Fluid Mechanics (2024) (accepted, currently undergoing proofs).
   </a>
 </p>
 
